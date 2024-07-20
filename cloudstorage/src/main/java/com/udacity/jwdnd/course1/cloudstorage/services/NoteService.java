@@ -15,9 +15,9 @@ public class NoteService {
 
     public List<Note> getNotesByUser(int userid) throws Exception {
         List<Note> notes = noteMapper.findByUserId(userid);
-        if (notes == null) {
-            return new ArrayList<>();
-        }
+//        if (notes == null) {
+//            throw new Exception("No notes found for user");
+//        }
         return notes;
     }
 

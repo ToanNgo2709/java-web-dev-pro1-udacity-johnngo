@@ -14,19 +14,19 @@ public interface CredentialMapper {
     List<Credential> findAll();
 
     @Select("SELECT * FROM CREDENTIALS WHERE credentialid = #{credentialid}")
-    public Credential findById(int credentialid);
+    Credential findById(int credentialid);
 
     @Select("SELECT * FROM CREDENTIALS WHERE userid = #{userid}")
-    public List<Credential> findByUserId(int userid);
+    List<Credential> findByUserId(int userid);
 
     @Insert("INSERT INTO CREDENTIALS (url, username, key, password, userid) " +
             "VALUES (#{credential.url}, #{credential.username}, #{credential.key}, #{credential.password}, #{userid})")
-    public int insert(Credential credential, int userid);
+    int insert(Credential credential, int userid);
 
     @Update("UPDATE CREDENTIALS SET url = #{url}, username = #{username}, key = #{key}, password = #{password} " +
             "WHERE credentialid = #{credentialid}")
-    public int update(Credential credential);
+    int update(Credential credential);
 
     @Delete("DELETE FROM CREDENTIALS WHERE credentialid = #{credentialid}")
-    public int delete(int credentialid);
+    int delete(int credentialid);
 }

@@ -14,18 +14,18 @@ public interface NoteMapper {
     List<Note> findAll();
 
     @Select("SELECT * FROM NOTES WHERE noteid = #{noteid}")
-    public Note findById(int noteid);
+    Note findById(int noteid);
 
     @Select("SELECT * FROM NOTES WHERE userid = #{userid}")
-    public List<Note> findByUserId(int userid);
+    List<Note> findByUserId(int userid);
 
     @Insert("INSERT INTO NOTES (notetitle, notedescription, userid) " +
             "VALUES (#{note.notetitle}, #{note.notedescription}, #{userid})")
-    public int insert(Note note, int userid);
+    int insert(Note note, int userid);
 
     @Delete("DELETE FROM NOTES WHERE noteid = #{noteid}")
-    public int delete(int noteid);
+    int delete(int noteid);
 
     @Update("UPDATE NOTES SET notetitle = #{notetitle}, notedescription = #{notedescription} WHERE noteid = #{noteid}")
-    public int update(Note note);
+    int update(Note note);
 }

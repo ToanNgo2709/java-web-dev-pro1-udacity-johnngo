@@ -33,4 +33,9 @@ public class Credential {
      * Password
      */
     private String password;
+
+    /**
+     * Encrypted Password
+     */
+    private String encryptpassword;
 }

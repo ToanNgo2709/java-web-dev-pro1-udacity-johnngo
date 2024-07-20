@@ -39,7 +39,8 @@ public class CredentialService {
         return credential;
     }
 
-    public Credential decryptPassword(Credential credential) {
+    public Credential decryptPassword(Credential credential) {;
+        credential.setEncryptpassword(credential.getPassword());
         credential.setPassword(encryptionService.decryptValue(credential.getPassword(), credential.getKey()));
         return credential;
     }
@@ -47,7 +48,7 @@ public class CredentialService {
     public List<Credential> getCredentialsByUser(int userid) throws Exception {
         List<Credential> credentials = credentialMapper.findByUserId(userid);
         if(credentials.isEmpty()) {
-            return new ArrayList<>();
+            return credentials;
         }
         return credentials.stream().map(this::decryptPassword).collect(Collectors.toList());
     }
